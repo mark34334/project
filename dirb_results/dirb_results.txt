@@ -1,0 +1,218 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: ./dirb_results/dirb_results.txt
+START_TIME: Sun Feb 19 21:14:34 2023
+URL_BASE: https://karunya.edu/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: https://karunya.edu/ ----
++ https://karunya.edu/404 (CODE:200|SIZE:55564)
++ https://karunya.edu/about-us (CODE:200|SIZE:65282)
++ https://karunya.edu/academic (CODE:200|SIZE:54095)
++ https://karunya.edu/academics (CODE:200|SIZE:86874)
+==> DIRECTORY: https://karunya.edu/adm/
++ https://karunya.edu/admin (CODE:403|SIZE:49345)
++ https://karunya.edu/Admin (CODE:403|SIZE:49345)
++ https://karunya.edu/ADMIN (CODE:403|SIZE:49345)
++ https://karunya.edu/administration (CODE:200|SIZE:55385)
++ https://karunya.edu/Administration (CODE:200|SIZE:55385)
++ https://karunya.edu/admissions (CODE:302|SIZE:214)
++ https://karunya.edu/alumni (CODE:200|SIZE:57512)
++ https://karunya.edu/archive (CODE:200|SIZE:50494)
++ https://karunya.edu/Archive (CODE:200|SIZE:50529)
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: ./dirb_results/dirb_results.txt
+START_TIME: Sun Feb 19 21:23:12 2023
+URL_BASE: https://github.com/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: https://github.com/ ----
+(!) WARNING: NOT_FOUND[] not stable, unable to determine the correct URLs {404,200}.
+    (Server is returning random responses)
+
+-----------------
+END_TIME: Sun Feb 19 21:23:17 2023
+DOWNLOADED: 0 - FOUND: 0
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: ./dirb_results/dirb_results.txt
+START_TIME: Sun Feb 19 21:23:41 2023
+URL_BASE: https://karunya.edu/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: https://karunya.edu/ ----
++ https://karunya.edu/404 (CODE:200|SIZE:55529)
++ https://karunya.edu/about-us (CODE:200|SIZE:65317)
++ https://karunya.edu/academic (CODE:200|SIZE:54262)
++ https://karunya.edu/academics (CODE:200|SIZE:86874)
+==> DIRECTORY: https://karunya.edu/adm/
++ https://karunya.edu/admin (CODE:403|SIZE:49345)
++ https://karunya.edu/Admin (CODE:403|SIZE:49345)
++ https://karunya.edu/ADMIN (CODE:403|SIZE:49345)
++ https://karunya.edu/administration (CODE:200|SIZE:55385)
++ https://karunya.edu/Administration (CODE:200|SIZE:55385)
++ https://karunya.edu/admissions (CODE:302|SIZE:214)
++ https://karunya.edu/alumni (CODE:200|SIZE:57512)
++ https://karunya.edu/archive (CODE:200|SIZE:50494)
++ https://karunya.edu/Archive (CODE:200|SIZE:50494)
++ https://karunya.edu/batch (CODE:403|SIZE:49345)
++ https://karunya.edu/blocks (CODE:200|SIZE:78933)
+==> DIRECTORY: https://karunya.edu/campaign/
++ https://karunya.edu/careers (CODE:200|SIZE:65734)
++ https://karunya.edu/cart (CODE:200|SIZE:49346)
++ https://karunya.edu/cgi-bin/ (CODE:403|SIZE:210)
++ https://karunya.edu/commerce (CODE:200|SIZE:86248)
+==> DIRECTORY: https://karunya.edu/conference/
++ https://karunya.edu/conferences (CODE:403|SIZE:49350)
++ https://karunya.edu/contact (CODE:200|SIZE:50246)
++ https://karunya.edu/Contact (CODE:200|SIZE:51515)
+==> DIRECTORY: https://karunya.edu/core/
++ https://karunya.edu/counters (CODE:200|SIZE:51602)
++ https://karunya.edu/cse (CODE:200|SIZE:102750)
+==> DIRECTORY: https://karunya.edu/dashboard/
+==> DIRECTORY: https://karunya.edu/design/
++ https://karunya.edu/english (CODE:200|SIZE:58990)
++ https://karunya.edu/English (CODE:200|SIZE:58990)
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: ./dirb_results/dirb_results.txt
+START_TIME: Sun Feb 19 21:39:15 2023
+URL_BASE: https://karunya.edu/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: https://karunya.edu/ ----
++ https://karunya.edu/404 (CODE:200|SIZE:55529)
++ https://karunya.edu/about-us (CODE:200|SIZE:65317)
++ https://karunya.edu/academic (CODE:200|SIZE:54262)
++ https://karunya.edu/academics (CODE:200|SIZE:86874)
+==> DIRECTORY: https://karunya.edu/adm/
++ https://karunya.edu/admin (CODE:403|SIZE:49345)
++ https://karunya.edu/Admin (CODE:403|SIZE:49345)
++ https://karunya.edu/ADMIN (CODE:403|SIZE:49345)
++ https://karunya.edu/administration (CODE:200|SIZE:55385)
++ https://karunya.edu/Administration (CODE:200|SIZE:55385)
++ https://karunya.edu/admissions (CODE:302|SIZE:214)
++ https://karunya.edu/alumni (CODE:200|SIZE:57512)
++ https://karunya.edu/archive (CODE:200|SIZE:50494)
++ https://karunya.edu/Archive (CODE:200|SIZE:50494)
++ https://karunya.edu/batch (CODE:403|SIZE:49345)
++ https://karunya.edu/blocks (CODE:200|SIZE:78933)
+==> DIRECTORY: https://karunya.edu/campaign/
++ https://karunya.edu/careers (CODE:200|SIZE:65734)
++ https://karunya.edu/cart (CODE:200|SIZE:49346)
++ https://karunya.edu/cgi-bin/ (CODE:403|SIZE:210)
++ https://karunya.edu/commerce (CODE:200|SIZE:86248)
+==> DIRECTORY: https://karunya.edu/conference/
++ https://karunya.edu/conferences (CODE:403|SIZE:49350)
++ https://karunya.edu/contact (CODE:200|SIZE:51516)
++ https://karunya.edu/Contact (CODE:200|SIZE:51515)
+==> DIRECTORY: https://karunya.edu/core/
++ https://karunya.edu/counters (CODE:200|SIZE:51602)
++ https://karunya.edu/cse (CODE:200|SIZE:102750)
+==> DIRECTORY: https://karunya.edu/dashboard/
+==> DIRECTORY: https://karunya.edu/design/
++ https://karunya.edu/english (CODE:200|SIZE:58990)
++ https://karunya.edu/English (CODE:200|SIZE:58990)
++ https://karunya.edu/error_log (CODE:200|SIZE:750894)
++ https://karunya.edu/events (CODE:200|SIZE:58219)
++ https://karunya.edu/Events (CODE:200|SIZE:58219)
++ https://karunya.edu/favicon.ico (CODE:200|SIZE:5430)
++ https://karunya.edu/feedback (CODE:200|SIZE:49889)
++ https://karunya.edu/food (CODE:200|SIZE:76614)
+==> DIRECTORY: https://karunya.edu/general/
++ https://karunya.edu/ie (CODE:403|SIZE:49350)
+==> DIRECTORY: https://karunya.edu/img/
++ https://karunya.edu/index.php (CODE:200|SIZE:83086)
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: ./dirb_results/dirb_results.txt
+START_TIME: Sun Feb 19 21:49:07 2023
+URL_BASE: https://karunya.edu/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: https://karunya.edu/ ----
++ https://karunya.edu/404 (CODE:200|SIZE:55564)
++ https://karunya.edu/about-us (CODE:200|SIZE:65317)
++ https://karunya.edu/academic (CODE:200|SIZE:54262)
++ https://karunya.edu/academics (CODE:200|SIZE:86874)
+==> DIRECTORY: https://karunya.edu/adm/
++ https://karunya.edu/admin (CODE:403|SIZE:49345)
++ https://karunya.edu/Admin (CODE:403|SIZE:49345)
++ https://karunya.edu/ADMIN (CODE:403|SIZE:49345)
++ https://karunya.edu/administration (CODE:200|SIZE:55385)
++ https://karunya.edu/Administration (CODE:200|SIZE:55385)
++ https://karunya.edu/admissions (CODE:302|SIZE:214)
++ https://karunya.edu/alumni (CODE:200|SIZE:57547)
++ https://karunya.edu/archive (CODE:200|SIZE:50494)
++ https://karunya.edu/Archive (CODE:200|SIZE:50494)
++ https://karunya.edu/batch (CODE:403|SIZE:49345)
++ https://karunya.edu/blocks (CODE:200|SIZE:78933)
+==> DIRECTORY: https://karunya.edu/campaign/
++ https://karunya.edu/careers (CODE:200|SIZE:65734)
++ https://karunya.edu/cart (CODE:200|SIZE:49346)
++ https://karunya.edu/cgi-bin/ (CODE:403|SIZE:210)
++ https://karunya.edu/commerce (CODE:200|SIZE:86248)
+==> DIRECTORY: https://karunya.edu/conference/
++ https://karunya.edu/conferences (CODE:403|SIZE:49350)
++ https://karunya.edu/contact (CODE:200|SIZE:51516)
++ https://karunya.edu/Contact (CODE:200|SIZE:51515)
+==> DIRECTORY: https://karunya.edu/core/
++ https://karunya.edu/counters (CODE:200|SIZE:51625)
++ https://karunya.edu/cse (CODE:200|SIZE:102750)
+==> DIRECTORY: https://karunya.edu/dashboard/
+==> DIRECTORY: https://karunya.edu/design/
++ https://karunya.edu/english (CODE:200|SIZE:58990)
++ https://karunya.edu/English (CODE:200|SIZE:58990)
++ https://karunya.edu/error_log (CODE:200|SIZE:750894)
++ https://karunya.edu/events (CODE:200|SIZE:58219)
++ https://karunya.edu/Events (CODE:200|SIZE:58219)
++ https://karunya.edu/favicon.ico (CODE:200|SIZE:5430)
++ https://karunya.edu/feedback (CODE:200|SIZE:49854)
++ https://karunya.edu/food (CODE:200|SIZE:76579)
+==> DIRECTORY: https://karunya.edu/general/
++ https://karunya.edu/ie (CODE:403|SIZE:49350)
+==> DIRECTORY: https://karunya.edu/img/
++ https://karunya.edu/index.php (CODE:200|SIZE:83086)
++ https://karunya.edu/install.mysql (CODE:403|SIZE:215)
++ https://karunya.edu/install.pgsql (CODE:403|SIZE:215)

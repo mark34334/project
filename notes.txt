@@ -1,0 +1,54 @@
+running a menu driven program using the sh scripting
+
+
+menu 
+
+	wesbite status check
+
+	server information
+
+	ip address of the server 
+
+	header of the server 
+
+	title of the websites
+
+	nmap scan on the server 
+
+	full reconnaissance on the mahcine
+
+	then exit of the program
+	
+	using the while loop to perform the menu driven program
+
+1 using #wesbite to call the website status cheaker function in the shell scipt 
+
+	the main code us curl 
+
+	curl -s -o (path/file) -w (target of the file )
+
+	the -s is used to run the tool in the scilence mode and the 
+	-o to give the right path to store the outputfile  
+	-w is to specific the type of file 
+
+	if the status code is 200 then website is up and running 
+	else it is marked as down 
+
+
+2 the server information:
+	the main code used is the curl tool 
+
+	curl -sI | grep Server | cut -d ' ' -f2 
+
+	the -sI is used to get the had request of the websites
+
+	using the grep tool to cut the required part 
+
+	then again using the cut to the same thing
+
+	-d is as a delimer " "(spaces )
+	-2 is field 
+
+
+
+3 Getting the server ip adderss:
