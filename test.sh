@@ -5,13 +5,13 @@ if ! command -v dirb &> /dev/null; then
   echo "Error: dirb is not installed. Please install it before running this script."
   exit 1
 fi
-
+:'
 # Check if dirbuster is installed
 if ! command -v dirbuster &> /dev/null; then
   echo "Error: dirbuster is not installed. Please install it before running this script."
   exit 1
 fi
-
+'
 # Check if nmap is installed
 if ! [ -x "$(command -v nmap)" ]; then
   echo "Error: nmap is not installed. Please install nmap and try again." >&2
@@ -55,7 +55,7 @@ function dirb_scan {
   fi
   dirb "$1" -o "$RESULTS_DIR/dirb_results.txt"
 }
-
+:'
 #Use dirbuster to scan for the directory from the websites
 function dirbuster_scan {
 # Set the wordlist to use for the scan
@@ -64,11 +64,11 @@ WORDLIST="/usr/share/wordlists/dirb/common.txt"
 # Set the directory to save the scan results
 RESULTS_DIR="./dirbuster_results"
 
-# Create the results directory if it doesn't exist
+# Create the results directory if it doesnt exist
 if [ ! -d "$RESULTS_DIR" ]; then
   mkdir -p "$RESULTS_DIR"
-fi
-
+fi	
+'
 # Run the dirbuster scan
 dirbuster -u "$1" -l "$WORDLIST" -o "$RESULTS_DIR/dirbuster_results.html" -F
 }
@@ -80,7 +80,7 @@ function main {
   ip_address $1
   nmap_scan $1
   dirb_scan $1
-  dirbuster_scan $1 
+  #dirbuster_scan $1 
 }
 
 # Menu
