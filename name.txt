@@ -1,0 +1,2 @@
+nmap with the -sv (version scan) -sC (sript scan) -A (enable the os decetion)  -v (increse the verbose) -Pn (treat all host as online) -oA (the output format)
+

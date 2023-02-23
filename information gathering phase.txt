@@ -1,0 +1,190 @@
+information gathering phase 
+
+from https://github.com/ivan-sincek/penetration-testing-cheat-sheet
+
+notes that need to be included into the program
+
+1. reconnaissance
+
+check if the website is alive or not using the httpx 
+
+	apt-get install httpx-toolkit
+
+	httpx-toolkit -o subdomains_live.txt -l subdomains.txt
+
+	httpx-toolkit -random-agent -json -o httpx_results.json -threads 100 -timeout 3 -l subdomains.txt -ports 80,443,8008,8080,8403,8443,9008,9080,9403,9443
+
+gau ---- to get urls frmo the wayback machines
+
+	#!/bin/bash
+
+	echo "Enter the URL of the website to extract URLs from: "
+	read url
+
+	echo "Extracting URLs from $url ..."
+
+	gau $url | sort -u > urls.txt
+
+	echo "Extraction complete. URLs saved to urls.txt"
+
+	---------------------------------------------------------
+
+	getallurls somedomain.com | tee gau_results.txt
+
+	for subdomain in $(cat subdomains_live.txt); do getallurls "${subdomain}"; done | sort -uf | tee gau_results.txt
+
+theharvester----------- to get the information about the websites 
+
+	includes the subdomain to find from the source like hte baidu, bing like search engine 
+
+amass --- which is used to subdomain enumaration and ip address mapping 
+
+	#!/bin/bash
+
+	# Function to run Amass and output subdomains and IP addresses
+	function gather_info {
+	  # Set the domain to target
+	  domain="$1"
+
+	  # Set the output directory for Amass
+	  outdir="./amass"
+
+	  # Run Amass in passive mode and output to a text file
+	  amass enum -passive -d $domain -o $outdir/$domain.txt
+
+	  # Output the subdomains to the console
+	  echo "Subdomains:"
+	  cat $outdir/$domain.txt | grep $domain | awk '{print $1}'
+
+	  # Output the IP addresses to the console
+	  echo "IP addresses:"
+	  cat $outdir/$domain.txt | grep $domain | awk '{print $2}'
+	}
+
+	# Call the function with a domain argument
+	gather_info "example.com"
+
+Sublist3r  --- which is used to find the enumarate the subdomains
+	
+	sublist3r -o sublister_results.txt -d somedomain.com
+
+Subfinder --- which is used to find the subdomain which is similar to the sublist3r but need to change the wordlist
+
+	subfinder -silent -timeout 5 -nW -r resolvers.txt -d somedomain.com | tee subfinder_results.txt
+
+dig ---- which is used find the dig command is a DNS lookup tool that is often used for information gathering during the reconnaissance phase of a security assessment or penetration testing engagement. It allows you to query DNS servers to obtain various types of information about a domain name, such as IP addresses, MX records, and more.
+
+
+	#!/bin/bash
+
+	# Define function to gather information using dig
+	function dig_info {
+	  # Ask user for domain name
+	  read -p "Enter domain name: " domain
+
+	  # Query for DNS records using dig
+	  echo "Querying DNS records for $domain..."
+	  echo ""
+
+	  # Query for A records
+	  echo "A records:"
+	  dig $domain A +short
+	  echo ""
+
+	  # Query for MX records
+	  echo "MX records:"
+	  dig $domain MX +short
+	  echo ""
+
+	  # Query for TXT records
+	  echo "TXT records:"
+	  dig $domain TXT +short
+	  echo ""
+
+	  # Query for NS records
+	  echo "NS records:"
+	  dig $domain NS +short
+	  echo ""
+	}
+
+	# Call the function
+	dig_info
+
+DNSRecon --- DNSRecon is a popular open-source tool for DNS enumeration, reconnaissance, and information gathering. It can be used to discover hosts, subdomains, IP addresses, and associated network infrastructure for a given domain. DNSRecon can perform various types of DNS queries, including standard, reverse, brute-force, and dictionary-based queries. It can also perform zone transfers and test for common DNS misconfigurations and vulnerabilities. DNSRecon is commonly used by security professionals and penetration testers to gather intelligence about a target network, identify potential attack vectors, and assess the overall security posture of an organization's DNS infrastructure.
+
+	#!/bin/bash
+
+	read -p "Enter the domain name to scan: " domain
+
+	echo "Performing DNS enumeration for $domain"
+
+	# Run DNSRecon with various options to gather information about the domain
+	dnsrecon -d $domain -a -t axfr -t brt -t srv -t tld -t zonewalk -r /usr/share/dnsrecon/namelist.txt
+
+	echo "DNS enumeration completed"
+
+	--------------------------------------------------------- checking the reverse dns 
+
+	#!/bin/bash
+
+	# Check if dnsrecon is installed
+	if ! command -v dnsrecon &> /dev/null
+	then
+	    echo "dnsrecon not found. Please install dnsrecon first."
+	    exit
+	fi
+
+	read -p "Enter the IP address to perform reverse DNS lookup: " ip_address
+
+	# Perform reverse DNS lookup using dnsrecon
+	dnsrecon -t rvl -a -n $ip_address
+
+urlhunter --- URLHunter is a reconnaissance tool used for discovering and extracting URLs from various sources such as web pages, HTML, Javascript files, CSS files, and more. It can be used in information gathering phase to discover web pages and assets that may not be readily visible or indexed by search engines. This tool can be particularly useful for identifying hidden subdomains, directories, or files that may be vulnerable to attack.
+
+
+
+	#!/bin/bash
+
+	echo "Enter the website URL (e.g. example.com): "
+	read website_url
+
+	echo "Running URLHunter on $website_url..."
+
+	urlhunter -u $website_url -o urlhunter_output.txt
+
+	echo "URLHunter scan completed. Output saved to urlhunter_output.txt."
+
+
+whatweb --- The tool is often used in information gathering and reconnaissance for penetration testing and security auditing purposes. By identifying the software used by a website, an attacker can search for known vulnerabilities and weaknesses that can be exploited to gain unauthorized access to the system.
+
+	#!/bin/bash
+
+	# Prompt the user for the target website URL
+	read -p "Enter the target website URL: " url
+
+	# Use whatweb to gather information about the website
+	whatweb_output=$(whatweb $url)
+
+	# Print the output
+	echo "$whatweb_output"
+
+eyewitness --- Eyewitness is a tool used for website reconnaissance, which means it is used to gather information about a website or web application. It can take screenshots of web pages, generate reports of open ports and applications running on the server, and scan for common vulnerabilities. Eyewitness is often used by penetration testers and security researchers to identify potential attack vectors or vulnerabilities in web applications.
+
+
+	#!/bin/bash
+
+	# Prompt the user to enter the target website
+	read -p "Enter the target website: " target
+
+	# Check if the Eyewitness tool is installed
+	if ! command -v eyewitness &> /dev/null; then
+	    echo "Eyewitness is not installed. Installing..."
+	    sudo apt-get update
+	    sudo apt-get install eyewitness -y
+	fi
+
+	# Run Eyewitness with the target website
+	echo "Running Eyewitness..."
+	eyewitness -d ./eyewitness-output -t "$target" --web --no-prompt
+
+	echo "Eyewitness scan complete. Output saved to ./eyewitness-output directory."
