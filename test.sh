@@ -50,7 +50,7 @@ function ip_address {
 # Use nmap to scan the target website
 function nmap_scan {
   echo "Starting nmap scan..."
-  nmap -sV -Pn $1
+  nmap -sV -sC $1
 }
 
 #Use dirb to scan for the directory # Create the results directory if it doesn't exist
@@ -65,20 +65,20 @@ function dirb_scan {
 #-----------------------------------------------------------------------------------------------------
 #Use the gobuster to scan for the direcotory
 function gobuster_scan {
-	read -p "Enter your name: " NAME
+        read -p "Enter your name: " NAME
   echo "Hello, $NAME! Nice to meet you."
-  	read -p "So let's start the attack can you tell me threads cound: " thread
-  	echo "Okay, thread count pointed at $thread"
-	mkdir -p gobuster_results
-	wordlist=/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+        read -p "So let's start the attack can you tell me threads cound: " thread
+        echo "Okay, thread count pointed at $thread"
+        mkdir -p gobuster_results
+        wordlist=/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 # Run Gobuster and store the output in a file
-	echo "Starting the attack on $1 domain."
-	gobuster dir -u "$1" -w "$wordlist" -t "$thread" -o gobuster_results/output.txt
-	echo "Gobuster scan completed. Results saved in gobuster_results directory."
+        echo "Starting the attack on $1 domain."
+        gobuster dir -u "$1" -w "$wordlist" -t "$thread" -o gobuster_results/output.txt
+        echo "Gobuster scan completed. Results saved in gobuster_results directory."
 }
 
 #-----------------------------------------------------------------------------------------------------
-function nmap_scan {
+function nmap_auto_scan {
 
 # Define ANSI color variables
 RED='\033[0;31m'
@@ -993,10 +993,10 @@ while true; do
         printf "${YELLOW}\tRecon   : ${NC}Suggests recon commands, then prompts to automatically run them\n"
         printf "${YELLOW}\tAll     : ${NC}Runs all the scans ${YELLOW}(~20-30 minutes)\n"
         printf "${NC}\n"
-	printf "\n\n"
-	read -p "${YELLOW} Enter the options: " website
-	nmap_scan $website
-	;;
+        printf "\n\n"
+        read -p "${YELLOW} Enter the options: " website
+        nmap_auto_scan $website
+        ;;
     9)
       break
       ;;
