@@ -1,5 +1,5 @@
 information gathering phase 
-
+name of the project: "Automated Web Reconnaissance Tool"
 from https://github.com/ivan-sincek/penetration-testing-cheat-sheet
 
 notes that need to be included into the program
