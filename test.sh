@@ -1,10 +1,15 @@
 #!/bin/bash
 
+#------------------------------------------------------------------------------------------------
+# Check if Nikto is installed
+command -v nikto >/dev/null 2>&1 || { echo >&2 "Nikto is not installed. Please install it and try again."; exit 1; }
 # Check if dirb is installed
+
 if ! command -v dirb &> /dev/null; then
   echo "Error: dirb is not installed. Please install it before running this script."
   exit 1
 fi
+#------------------------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------------------------ 
 #Check if the gobuster is installed in the system
@@ -76,6 +81,40 @@ function gobuster_scan {
         gobuster dir -u "$1" -w "$wordlist" -t "$thread" -o gobuster_results/output.txt
         echo "Gobuster scan completed. Results saved in gobuster_results directory."
 }
+#-----------------------------------------------------------------------------------------------------
+#Using the wapiti tool 
+function wapiti_scan() {
+    target_url="$1"
+   
+    #wapiti --url="$target_url" --output-dir="$output_dir/$target_url"
+#making a directory
+output_dir="./wapiti_scan_results"
+
+# Create output directory if it doesn't exist
+if [ ! -d "$output_dir" ]; then
+  mkdir "$output_dir"
+fi
+# Run wapiti scan and save output to file
+wapiti --url="$target_url" --color -output="$output_dir/output.txt" --format html
+echo "Scan complete. Results saved to $output_dir directory."
+
+}
+#-----------------------------------------------------------------------------------------------------
+# Function to run Nikto scan
+nikto_scan () {
+website=$1
+dir_name="Nikto-Scan-Output"
+file_name="${website//\//_}.txt"
+
+if [ ! -d "$dir_name" ]; then
+  mkdir "$dir_name"
+fi
+
+cd "$dir_name"
+nikto -h "$website" --output="$file_name"
+echo "Nikto scan complete. Output saved in $dir_name/$file_name"
+}
+#-----------------------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------------------
 function nmap_auto_scan {
@@ -947,8 +986,10 @@ while true; do
   echo "6. Directory search using dirb"
   echo "7. Directory search using gobuster"
   echo "8. Using the nmap automator tool"
-  echo "9. Exit"
-  read -p "Choose an option [1-9]: " option
+  echo "9. Using the wapiti tool"
+  echo "10. Using Nikto tool"
+  echo "11. Exit"
+  read -p "Choose an option [1-11]: " option
 
   case $option in
     1)
@@ -998,6 +1039,14 @@ while true; do
         nmap_auto_scan $website
         ;;
     9)
+      read -p "Enter the target website:" website
+      wapiti_scan $website
+      ;;
+    10)
+      read -p "Enter the target website:" website
+      nikto_scan $website
+      ;;
+    11)
       break
       ;;
   esac
