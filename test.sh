@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #------------------------------------------------------------------------------------------------
 # Check if Nikto is installed
 command -v nikto >/dev/null 2>&1 || { echo >&2 "Nikto is not installed. Please install it and try again."; exit 1; }
@@ -117,7 +118,7 @@ echo "Nikto scan complete. Output saved in $dir_name/$file_name"
 #-----------------------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------------------
-function nmap_auto_scan {
+function awrt_scan {
 
 # Define ANSI color variables
 RED='\033[0;31m'
@@ -660,7 +661,7 @@ recon() {
                                 printf "\033[2K\rRunning Default in (${tlimit})s: "
 
                                 # Waits 1 second for user's input - POSIX read -t
-                                reconCommand="$(sh -c '{ { sleep 1; kill -sINT $$; } & }; exec head -n 1')"
+                                reconCommand="$(sh -c '{ { sleep 35; kill -sINT $$; } & }; exec head -n 1')"
                                 count=$((count + 1))
                                 [ -n "${reconCommand}" ] && break
                         done
@@ -985,7 +986,7 @@ while true; do
   echo "5. Full reconnaissance"
   echo "6. Directory search using dirb"
   echo "7. Directory search using gobuster"
-  echo "8. Using the nmap automator tool"
+  echo "8. Information gathering using AWT"
   echo "9. Using the wapiti tool"
   echo "10. Using Nikto tool"
   echo "11. Exit"
@@ -1036,7 +1037,7 @@ while true; do
         printf "${NC}\n"
         printf "\n\n"
         read -p "${YELLOW} Enter the options: " website
-        nmap_auto_scan $website
+        awrt_scan $website
         ;;
     9)
       read -p "Enter the target website:" website
