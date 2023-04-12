@@ -49,14 +49,28 @@ function server_info {
 
 # Extract IP address
 function ip_address {
-  ping $1 -w 12  
+  url=$1
+  # Remove "http://" or "https://" from the URL
+  url=${url#http://}
+  url=${url#https://}
+  # Remove trailing slash (/) from the URL, if present
+  url=${url%/}
+
+  echo "Pinging $url..."
+  ping -c 12 "$url"
 }
 
 
 # Use nmap to scan the target website
 function nmap_scan {
   echo "Starting nmap scan..."
-  nmap -sV -sC $1
+  url=$1
+  # Remove "http://" or "https://" from the URL
+  url=${url#http://}
+  url=${url#https://}
+  # Remove trailing slash (/) from the URL, if present
+  url=${url%/}
+  nmap -sV -sC "$url"
 }
 
 #Use dirb to scan for the directory # Create the results directory if it doesn't exist
@@ -96,7 +110,7 @@ if [ ! -d "$output_dir" ]; then
   mkdir "$output_dir"
 fi
 # Run wapiti scan and save output to file
-wapiti --url="$target_url" --color -output="$output_dir/output.txt" --format html
+wapiti -u"$target_url" --color -output="$output_dir/output.txt" --format html
 echo "Scan complete. Results saved to $output_dir directory."
 
 }
@@ -973,7 +987,7 @@ function main {
   nmap_scan $1
   dirb_scan $1 
   gobuster_scan $1
-  nmap_scan $1
+  awrt_scan $1
 }
 
 # Menu
